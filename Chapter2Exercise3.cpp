@@ -2,10 +2,9 @@
 
     File Name: Chapter2Exercise3.cpp
     Programmer/Developer: Alejandro Andres Pepito
-    Date: 2/19/2025
+    Date: 2/19/2025 (Revised on: 5/04/2025)
     Requirements:
-        "Write a program that will compute the total sales tax on a $95 purchase.
-         Assume the sales tax is 4%, and the county sales tax is 2%."
+        "Revise the program for Exercise 3, but instead of having state and country sales tax hard-coded in your program, allow the user to enter the sales taxes as well as the amount of the purchase, and display the total Sales tax."
 
 */
 
@@ -15,24 +14,29 @@ using namespace std;
 
 int main()
 {
-    double sales = 95;  // Base price of purchase, without taxes included.
+    double purchaseAmount, stateTaxRate, countyTaxRate;
 
-    // Rates of taxes.
-    const double stateTaxRate = .04;
-    const double countyTaxRate = .02;
+    // Get values from the user
+    cout << "Enter the purchase amount: $";
+    cin >> purchaseAmount;
 
-    // Separate prices of taxes paid.
-    double stateTax = sales * stateTaxRate;
-    double countyTax = sales * countyTaxRate;
+    cout << "Enter the state tax rate (as a decimal, e.g., 0.04 for 4%):";
+    cin >> stateTaxRate;
 
-    // Total prices of taxes paid.
+    cout << "Enter the county tax rate (as a decimal, e.g., 0.02 for 2%):";
+    cin >> countyTaxRate;
+
+    // Calculate taxes
+    double stateTax = purchaseAmount * stateTaxRate;
+    double countyTax = purchaseAmount * countyTaxRate;
     double totalSalesTax = stateTax + countyTax;
-    
-    // Code for console output.
-    cout << "Sales: $" << sales << endl
-         << "State Tax: $" << stateTax << endl
-         << "County Tax: $" << countyTax << endl
-         << "Total Taxes Paid: $" << totalSalesTax;
+
+    // Output results without formatting
+    cout << "\n--- Sales Tax Breakdown ---" << endl;
+    cout << "Purchase Amount: $" << purchaseAmount << endl;
+    cout << "State Tax: $" << stateTax << endl;
+    cout << "County Tax: $" << countyTax << endl;
+    cout << "Total Sales Tax: $" << totalSalesTax << endl;
 
     return 0;
 }
